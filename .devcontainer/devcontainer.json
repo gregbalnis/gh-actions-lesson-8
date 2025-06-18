@@ -1,0 +1,49 @@
+// For format details, see https://aka.ms/devcontainer.json.
+
+{
+	"name": "General purpose NodeJS dev container",
+
+	// Pick a base image to use for the dev container.
+	// https://github.com/devcontainers/templates/tree/main
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Pass access tokens to the container. Pick whaever you need.
+	"remoteEnv": { 
+		// "GITHUB_NPM_TOKEN": "${localEnv:GITHUB_PACKAGES_TOKEN}",
+		// "JFROG_NPM_TOKEN": "${localEnv:JFROG_ACCESS_TOKEN}",
+		"GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"//,
+		// "BITBUCKET_TOKEN": "${localEnv:BITBUCKET_TOKEN}"
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash .devcontainer/scripts/post-create-commands.sh",
+
+	// Use 'PostAttachCommand' to run commands after the container is attached.
+	// "postAttachCommand": "bash .devcontainer/scripts/post-attach-commands.sh",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"git.enableCommitSigning": true,
+				"terminal.integrated.shell.linux": "/bin/bash",
+				"workbench.iconTheme": "material-icon-theme"
+			},
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"pkief.material-icon-theme",
+				"github.vscode-github-actions"
+			  ]
+		  }
+		}
+
+	// Uncomment to connect as root instead.
+	// "remoteUser": "root"
+}
