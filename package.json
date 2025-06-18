@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/gregbalnis/gh-actions-lesson-8#readme",
   "devDependencies": {
-    "jest": "^26.0.0"
+    "jest": "^30.0.0"
   }
 }
